@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="header_view_partner_form" model="ir.ui.view">
+        <field name="name">approved.view.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header name="header_partner">
+                    <button type="action" name="%(action_wizard_partner)d" string="Actualiza Chatter" class="btn btn-secondary"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>
