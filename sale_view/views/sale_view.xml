@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_sale_demo" model="ir.actions.client">
+       <field name="name">Sale Custom</field>
+       <field name="tag">sale_view</field>
+       <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_sale_demo"  action="action_sale_demo"
+         name="My Sales Summary" parent="sale.sale_order_menu"/>
+</odoo>
