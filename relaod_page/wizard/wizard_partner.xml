@@ -5,9 +5,20 @@
             <field name="name">wizard.partner</field>
             <field name="model">wizard.partner</field>
             <field name="arch" type="xml">
-                <form string="Wizard Parntner">
-                    <field name="partner_id" readonly="1" force_save="1"/>
-                    <field name="partner_text" placeholder="Escribe para el chatter y actualizar la página..."/>
+                <form string="Wizard Partner">
+                    <group name="top">
+                        <group name="left">
+                            <field name="partner_id" readonly="1" force_save="1"/>
+                        </group>
+                        <group name="right">
+                            <field name="image" widget="image" options='{"preview_image": "image"}' class="oe_avatar" nolabel="1"/>
+                        </group>
+                    </group>
+
+                    <group name="message">
+                        <field name="partner_text" placeholder="Escribe para el chatter y actualizar la página..."/>
+                    </group>
+
                     <footer>
                         <button string="Actualizar" name="action_update" type="object" class="btn-primary"/>
                         <button string="Cancelar" class="oe_link" special="cancel"/>

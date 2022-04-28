@@ -16,7 +16,8 @@ class WizardPartner(models.TransientModel):
     _name = "wizard.partner"
 
     partner_text = fields.Text()
-    partner_id = fields.Many2one('res.partner')
+    partner_id = fields.Many2one('res.partner', required=True)
+    image = fields.Image("Big Image", max_width=1920, max_height=1920)
 
     @api.model
     def default_get(self, fields):
@@ -29,4 +30,6 @@ class WizardPartner(models.TransientModel):
 
     def action_update(self):
         self.partner_id.message_post(body=self.partner_text)
+        if self.image:
+            self.partner_id.image_1920 = self.image
         return {'type': 'ir.actions.client', 'tag': 'reload'}

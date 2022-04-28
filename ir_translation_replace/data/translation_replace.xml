@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <function model="ir.translation" name="write">
+            <value model="ir.translation" eval="obj().search([('src','=','New Quotation'),
+            ('module','=','sale_crm'),('state','=','translated'),('lang','=','es_Es')]).ids"/>
+            <value eval="{
+                'value':'Nueva Venta'}"/>
+        </function>
+</odoo>
