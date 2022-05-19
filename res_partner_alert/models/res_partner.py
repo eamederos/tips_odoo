@@ -16,7 +16,7 @@ class ResPartner(models.Model):
             partner.contact_only_address = only_address
 
     @api.onchange('contact_address')
-    def _check_if_street(self):
+    def _check_contact_address_duplication(self):
         for partner in self:
             if partner.name or partner.street or partner.street2 or partner.zip or partner.country_id \
                     or partner.state_id or partner.city:
