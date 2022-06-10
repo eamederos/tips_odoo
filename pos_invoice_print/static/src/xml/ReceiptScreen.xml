@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ReceiptScreen" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('button') and hasclass('print')]" position="after">
+            <div class="button print" t-on-click="printInvoice">
+                <i class="fa fa-print"></i> Imprimir Factura
+            </div>
+        </xpath>
+    </t>
+
+</templates>

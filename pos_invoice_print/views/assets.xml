@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/pos_invoice_print/static/src/js/ReceiptScreen.js"/>
+            <script type="text/javascript" src="/pos_invoice_print/static/src/js/TicketScreen.js"/>
+        </xpath>
+    </template>
+</odoo>
