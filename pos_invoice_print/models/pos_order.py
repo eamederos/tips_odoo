@@ -4,13 +4,6 @@ from odoo.exceptions import UserError
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-    user_name = fields.Char(compute='_compute_user_name', store=True)
-
-    @api.depends('user_id')
-    def _compute_user_name(self):
-        for order in self:
-            order.user_name = order.user_id.name or ''
-
     @api.model
     def get_order_invoice(self, reference):
         order = self.search([('pos_reference','=',reference)])
