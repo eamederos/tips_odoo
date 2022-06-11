@@ -1,5 +1,5 @@
 ======================
-POS Print Picking
+POS Print Invoice
 ======================
 
-Impresión del Vale de Entrega desde POS
+Impresión de Factura durante proceso de Pago
