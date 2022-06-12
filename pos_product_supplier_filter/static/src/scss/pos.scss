@@ -1,0 +1,18 @@
+.supplier-filter {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+
+    select {
+        height: 32px;
+        border: none;
+        background: white;
+        border-radius: 5px;
+        padding-left: 5px;
+    }
+}
+
+.pos .product.hide_this_product {
+    display: none;
+}

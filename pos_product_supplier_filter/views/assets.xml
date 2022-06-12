@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="pos_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/pos_product_supplier_filter/static/src/scss/pos.scss"/>
+        </xpath>
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/pos_product_supplier_filter/static/src/js/models.js"/>
+            <script type="text/javascript" src="/pos_product_supplier_filter/static/src/js/SupplierFilter.js"/>
+        </xpath>
+    </template>
+</odoo>

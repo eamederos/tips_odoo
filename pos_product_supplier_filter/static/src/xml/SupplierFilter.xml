@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SupplierFilter" owl="1">
+        <div class="supplier-filter">
+            <select id="supplier_products" t-on-change="filterSupplier">
+                <option disabled="" selected="" value="0">Proveedor...</option>
+                <option t-foreach="suppliers" t-as="supplier" t-key="supplier_index" t-att-value="supplier.id" t-esc="supplier.name"/>
+            </select>
+        </div>
+    </t>
+</templates>

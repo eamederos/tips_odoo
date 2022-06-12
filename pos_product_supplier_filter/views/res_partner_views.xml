@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="after">
+                    <field name="supplier_rank" invisible="1"/>
+                </field>
+                <notebook position="inside">
+                    <page string="Productos" attrs="{'invisible': [('supplier_rank','=',0)]}">
+                        <field name="product_supplier_variant_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
