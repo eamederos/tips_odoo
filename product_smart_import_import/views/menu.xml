@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem id="product_smart_import_menu"
+                name="Importar Productos"
+                parent="stock.menu_stock_inventory_control"
+                action="action_product_smart_import"
+                sequence="10"/>
+
+
+</odoo>

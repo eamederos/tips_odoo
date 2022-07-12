@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="product_smart_import_view_from" model="ir.ui.view">
+            <field name="name">product.smart.import.view.form</field>
+            <field name="model">product.smart.import</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="next_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_smart_import_view_tree" model="ir.ui.view">
+            <field name="name">product.smart.import.view.tree</field>
+            <field name="model">product.smart.import</field>
+            <field name="arch" type="xml">
+              <form>
+              <header>
+                    <button name="action_import_file" type="object"
+                        string="Importar" class="oe_highlight"
+                        states="draft"/>
+                    <button name="action_validate" type="object"
+                        string="Validar" class="oe_highlight"
+                        states="draft"/>
+                    <button name="action_draft" type="object"
+                        string="Volver a Borrador" class="btn btn-secondary"
+                        states="validated"/>
+                    <button name="process_categories" type="object"
+                        string="Crear Categorías" class="oe_highlight"
+                        states="validated"/>
+                    <button name="process_attributes" type="object"
+                        string="Crear Atributos" class="oe_highlight"
+                        states="category"/>
+                   <!--
+
+
+                    <button name="back_to_validated" type="object"
+                        string="Volver a Validado" class="btn btn-secondary"
+                        states="done"/>-->
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated,category,attribute,template,variant,done,cancel"/>
+                </header>
+                <sheet>
+                   <!-- <div class="oe_button_box" name="button_box">
+                            <button name="action_view_smarts"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-dollar"
+                                    attrs="{'invisible': [('smart_count','=',0)]}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">
+                                        <field name="smart_count"/>
+                                    </span>
+                                    <span class="o_stat_text">Ventas</span>
+                                </div>
+                            </button>
+                    </div>-->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                           <field name="user_id"/>
+                           <field name="active" invisible="1"/>
+                           <field name="next_id"/>
+                        </group>
+                        <group>
+                           <field name="file_name" invisible="1"/>
+                           <field name="file" filename="file_name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                           <field name="limit"/>
+                        </group>
+                    </group>
+
+                   <notebook>
+                        <page string="Pedidos Venta">
+                            <field name="import_lines" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="bottom" create="0"><!--decoration-muted="executed==True" decoration-danger="error != ''"-->
+                                        <field name="product_template_id" widget="many2one" optional="show"/>
+                                        <field name="product_id" widget="many2one" optional="show"/>
+                                        <field name="product_code" optional="show"/>
+                                        <field name="product_name"/>
+                                        <field name="category_name"  optional="show"/>
+                                        <field name="category_id" widget="many2one" optional="show"/>
+                                        <field name="price" optional="show"/>
+                                         <field name="color" optional="show"/>
+                                        <field name="measure" optional="show"/>
+                                        <field name="size_2" optional="show"/>
+                                        <field name="size" optional="show"/>
+                                        <field name="executed"/>
+
+
+
+                                      <!--
+                                        <field name="migration_difference"/>
+                                        <field name="error" optional="show"/>
+                                      -->
+                                    </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+              </form>
+            </field>
+        </record>
+
+        <record id="action_product_smart_import" model="ir.actions.act_window">
+            <field name="name">Importar Productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.smart.import</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>
