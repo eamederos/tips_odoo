@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="menu_custom_form" model="website.menu">
+            <field name="name">After Sales Form</field>
+            <field name="url">/after_sale_form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">22</field>
+        </record>
+    </data>
+
+    <template id="after_sale_form" name="After Sales Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col text-center pt-2"><h1>After Sales Form</h1></div>
+                    <div class="col text-left py-3"><h3>IMPORTANT</h3></div>
+                    <div class="col text-left py-3"><span>Please note that our repair center moved to the following address:</span> <strong> Carrer de Salvador Espriu, 81 bajo, 08005 Barcelona</strong></div>
+                    <div class="col-md-12 py-3">
+                       <form action="/after_sale_form/submit">
+                           <div class="row">
+                              <div class="col-sm">
+                                   <label for="customer_type">Retailer/Individual Customer</label>
+                                    <select class="form-control s_website_form_input" name="customer_type" id="customer_type" style="">
+                                      <option value="retailer">Retailer</option>
+                                      <option value="individual">Individual Customer</option>
+                                    </select>
+                              </div>
+                           </div>
+                           <div class="row pt-3" id="individual_info" name="individual_info">
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" required="true" />
+                                    </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="last_name">Last:</label>
+                                        <input type="text" class="form-control" name="last_name"
+                                         id="last_name" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2" id="retailer_info" name="retailer_info">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="retailer_name">Retailer Name</label>
+                                        <input type="text" class="form-control" name="retailer_name" id="retailer_name" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="address">Address Of Delivery After The Repair / Address For Sending Spare Parts </label>
+                                        <input type="text" class="form-control" name="address" id="address" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="address1">Address Line 1</label>
+                                        <input type="text" class="form-control" name="address1" id="address1"/>
+                                    </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="address2">State / Province / Region</label>
+                                        <input type="text" class="form-control" name="address2" id="address2" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="zip">Postal Code</label>
+                                        <input type="text" class="form-control" name="zip" id="zip"/>
+                                    </div>
+                               </div>
+                               <div class="col-6">
+                                   <div class="form-group">
+                                        <label for="country">Country - Seleccionable</label>
+                                        <input type="text" class="form-control" name="country" id="country" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="delivery">Contact For Delivery </label>
+                                        <input type="text" class="form-control" name="delivery" id="delivery" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                            <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="delivery_phone">Phone For Delivery</label>
+                                        <input type="text" class="form-control" name="delivery_phone" id="delivery_phone" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="order_num">B2B Order Number </label>
+                                        <input type="text" class="form-control" name="order_num" id="order_num" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="serial">Serial Number </label>
+                                        <input type="text" class="form-control" name="serial" id="serial" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="model">Model</label>
+                                        <input type="text" class="form-control" name="model" id="model" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row pt-2">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="km_number">ODO / Number of km</label>
+                                        <input type="text" class="form-control" name="km_number" id="km_number" required="true" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                              <div class="col-sm">
+                                    <label for="problem">Nature of the problem</label>
+                                    <select class="form-control s_website_form_input" name="problem" id="problem" style="">
+                                      <option value="battery">Low battery range</option>
+                                      <option value="electronic">Electronic Problem</option>
+                                      <option value="mechanical">Mechanical Problem</option>
+                                      <option value="other">Something else</option>
+                                    </select>
+                              </div>
+                           </div>
+
+                           <div class="row pt-3">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                        <label for="problem_description">Description of the problem</label>
+                                        <textarea type="text" class="form-control" name="problem_description" id="problem_description" required="true" rows="5" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="binary" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                  <label class=" col-sm-auto s_website_form_label " style="width: 200px" for="video">
+                                    <span class="s_website_form_label_content">Video of the problem</span>
+                                  </label>
+                                  <div class="col-sm">
+                                    <input type="file" class="form-control-file s_website_form_input" name="video" id="video"/>
+                                  </div>
+                                </div>
+                           </div>
+
+                           <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="binary" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                  <label class=" col-sm-auto s_website_form_label " style="width: 200px" for="photo">
+                                    <span class="s_website_form_label_content">Photos of the problem</span>
+                                  </label>
+                                  <div class="col-sm">
+                                    <input type="file" class="form-control-file s_website_form_input" name="photo" id="photo"/>
+                                  </div>
+                                </div>
+                           </div>
+
+                           <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="binary" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                  <label class=" col-sm-auto s_website_form_label " style="width: 200px" for="invoice">
+                                    <span class="s_website_form_label_content">Final customer invoice</span>
+                                  </label>
+                                  <div class="col-sm">
+                                    <input type="file" class="form-control-file s_website_form_input" name="invoice" id="invoice"/>
+                                  </div>
+                                </div>
+                           </div>
+
+                           <div class="row pt-3">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                       <h5>General terms and conditions</h5>
+                                    </div>
+                               </div>
+                           </div>
+                           <div class="row pt-3">
+                               <div class="col-12">
+                                   <div class="form-group">
+                                       <strong>I agree with Blue Way's warranty general conditions and terms </strong>
+                                    </div>
+                               </div>
+                           </div>
+
+                            <div class="row pt-2">
+                               <div class="col-12 text-left">
+
+                                   <input type="checkbox" name="agree" id="agree" class="pr-1"/>
+                                   <label for="km_number">I agree</label>
+                               </div>
+                           </div>
+
+
+                           <br/>
+                           <button type="submit" class="btn btn-primary ">Submit</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+          </t>
+    </template>
+</odoo>
